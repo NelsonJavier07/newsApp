@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-export const NewsCard = (noti) => {
+export const NewsCard = ({noti}) => {
 
-    console.log(noti);
+    
 
     const imgNewsPath = `/assets/${noti.author}.svg`;
 
