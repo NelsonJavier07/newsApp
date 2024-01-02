@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { getNews } from '../../../utils/httpClient.js';
 import axios from 'axios';
 
 import '../NewsGrid/NewsGrid.css';
@@ -11,10 +10,7 @@ export const NewsGrid = () => {
 
     
     const url = 'https://newsapi.org/v2/top-headlines?country=ar&apiKey=34bb8890a09f4be9be849b19707857f3'
-    // const url = 'https://newsapi.org/v2/';
-    // const urlPath = 'top-headlines?' +
-    //     'country=ar&' +
-    //     'apiKey=34bb8890a09f4be9be849b19707857f3';
+    
     
         const [news, setNews] = useState ([]);
         
@@ -22,26 +18,24 @@ export const NewsGrid = () => {
 
     useEffect(() => {
 
-    // const infoNews = () => {
+    
         axios.get(url)
         .then((res) => {setNews(res.data.articles);
         console.log(res.data.articles);
         })
         .catch((error) => console.log(error))
-    // }
+    
 
     }, [])
 
     
 
     return(
-        <ul className='notiContainer list-group'>
-            <li className='list-group-item'>
+            <div className='listContainer'>
                 {
-                    news.map((noti) => { return <NewsCard key={uuidv4()} noti={noti}  />})
+                    news.map((noti) => { return <NewsCard key={uuidv4()} noti={noti} />})
                 }
-            </li>
-        </ul>
+            </div>
     )
 }
 
